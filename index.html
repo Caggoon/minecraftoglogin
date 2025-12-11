@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <style>
+    @font-face {
+      font-family: "Minecrafter";
+      src: url("Minecrafter.Reg.ttf");
+    }
+
+    html {
+      background: url("minecraft-s2kxfahyg30sob8q.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      width: 450px;
+      height: 320px;
+      margin: 0 auto;
+      margin-top: 100px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      background: url("www.jpg") no-repeat center top;
+      background-size: cover;
+      background-position: center -5px;
+      position: relative;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 74%;
+      padding: 7.5px;
+      border: none;
+      border-radius: 3px;
+      margin-bottom: 50px;
+      position: relative;
+      left: 48px;
+      top: 106px;
+      background-color: #131313;
+      color: white;
+    }
+
+    input[type="submit"] {
+      width: 77%;
+      padding: 5px;
+      border: none;
+      background-color: #008943;
+      color: white;
+      cursor: pointer;
+      position: relative;
+      top: 130px;
+      left: 50px;
+      font-family: 'Minecrafter';
+      font-size: x-large;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="container">
+    <form>
+      <input type="text" id="username" name="username">
+      <input type="password" id="password" name="password">
+      <input type="submit" value="Log in" onclick="redirect(); return false;" style="background-color: #008943; color: white; font-family: 'Minecrafter'; font-size: x-large;">
+    </form>
+  </div>
+
+  <script>
+    var container = document.getElementById("container");
+    var originalHTML = container.innerHTML;
+
+    function redirect() {
+      var video = document.createElement("video");
+      video.src = "videoplayback.mp4";
+      video.autoplay = true;
+      video.loop = true;
+      video.controls = false;
+      video.style.position = "absolute";
+      video.style.top = 0;
+      video.style.left = 0;
+      video.style.width = "100%";
+      video.style.height = "100%";
+      video.style.objectFit = "cover";
+      video.style.zIndex = 0;
+
+      container.appendChild(video);
+
+      var form = container.querySelector("form");
+      form.style.position = "relative";
+      form.style.zIndex = 1;
+
+      if (video.requestFullscreen) video.requestFullscreen();
+
+      document.addEventListener("fullscreenchange", function() {
+        if (!document.fullscreenElement) {
+          video.pause();
+          container.innerHTML = originalHTML;
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var passwordInput = document.getElementById("password");
+      passwordInput.addEventListener("keyup", function (event) {
+        event.preventDefault();
+        if (event.key === "Enter") {
+          document.querySelector("input[type='submit']").click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+<!--Minecraft Login Page,By Rickroll.Mincraft.Nvidia.CMTW®©.Ltd,Verison 0.22.4-->
